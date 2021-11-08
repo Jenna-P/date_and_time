@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div class="btnSection">
+      <form action="/date" method = "GET">
+      <button>Get Date</button>
+      </form>  
+      <br>
+      <form action="/time" method = "GET">
+        <button>Get Time</button>
+        </form>
+        <br>
+        <form action="/alarm" method = "GET">
+        <button>Set Alarm</button>
+        </form>
+    </div>
+  </body>
+</html>
