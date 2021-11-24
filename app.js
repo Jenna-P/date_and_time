@@ -3,12 +3,30 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var alarmRouter = require('./routes/alarm');
 
 var app = express();
+
+const db = "mongodb+srv://Jenna_DB:Merrychristmas@cluster0.gqd0l.mongodb.net/datatest?retryWrites=true&w=majority";
+//connect DB
+// mongoose.connect(db, {useNewUrlParser: true})
+// //check connected to mongo DB
+// mongoose.connection.on("error", function(error) {
+//   console.log(error)
+// });
+
+// mongoose.connection.on("open", function() {
+//   console.log("Connected to MongoDB database.");   
+// });
+
+//Connect to Mongo
+mongoose.connect(db, { useNewUrlParser: true })
+    .then(() => console.log("MongoDB Connected"))
+    .catch(err => console.log(err));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
