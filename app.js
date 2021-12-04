@@ -9,9 +9,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var alarmRouter = require('./routes/alarm');
 
+require('dotenv').config()
+
 var app = express();
 
-const db = "mongodb+srv://Jenna_DB:Merrychristmas@cluster0.gqd0l.mongodb.net/datatest?retryWrites=true&w=majority";
+const db =  process.env.DB_URL;
 //connect DB
 // mongoose.connect(db, {useNewUrlParser: true})
 // //check connected to mongo DB
