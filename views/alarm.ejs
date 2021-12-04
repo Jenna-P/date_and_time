@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script defer type="text/javascript" src='/javascript/main.js'></script>
+    <script defet type="text/javascript" src="/javascripts/main.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+<div class="current-time">
+    <h1>Current Time</h1>
+    <p class="time alarm"></p>
+</div>
+    <div class="container alarm">
+        <div class="alarm-setting">
+            <p>Set Alarm</p>
+        <form action="/alarm" method="POST">
+            <textarea name="showAlarm" id="showAlarm" cols="30" rows="3"></textarea>
+            <div class="set-time">
+                <input type="number" name="hours" id="hours" min="0" max="24"  placeholder="Hours" value="" required/>
+                <input type="number" name="minuts" id="minuts" min="0" max="60"  placeholder="Minuts" value="" required/>
+                <input type="number" name="seconds" id="seconds" min="0" max="60"  placeholder="Seconds" value="" required/>
+                <button type = "button" class="setAlarm" onclick="setAlarm()">SET ALARM</button>
+            </div>
+          <button type="submit" id="saveData">SAVE DATA</button>
+        </form>
+        </div>
+
+        <div class="list">
+            <ul>
+                <% alarms.forEach(function(alarm){ %>
+                 <li><%= alarm.savedAlarms %></li>
+                <% }); %>
+              </ul>
+        </div>
+    </div>
+</body>
+</html>

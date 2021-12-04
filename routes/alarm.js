@@ -1,14 +1,26 @@
 var express = require('express');
 var router = express.Router();
 
+//DB set
+const Alarm = require('../models/Alarm');
 
-router.get('/', function(req, res, next) {
-  res.send('Set alarm : 06 : 30');
+
+router.get('/', async function(req, res, next) {
+  let alarmList = await Alarm.find();
+  res.render('alarm', { alarms : alarmList});
 });
 
 router.post('/', function(req, res, next) {
+    const alarm = req.body.showAlarm
+    const newAlarm = new Alarm({
+      savedAlarms : alarm,
     
-    res.send('Set new alarm : 7 :00');
+})
+ newAlarm.save();
+    res.redirect('/alarm');
+
+    res.render('alarm', { alarms : alarmList});
+
   });
 
   //TODO 
